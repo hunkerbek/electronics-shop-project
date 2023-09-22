@@ -2,7 +2,7 @@ import csv
 import os.path
 
 
-# from src.csv_errors import InstantiateCSVError
+#from src.csv_errors import InstantiateCSVError
 class Item:
     """
     Класс для представления товара в магазине.
@@ -22,6 +22,15 @@ class Item:
         self.price = price
         self.quantity = quantity
         Item.all.append(self)
+
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+
+
+    def __str__(self):
+        return self.name
+
 
     @property
     def name(self):
