@@ -1,5 +1,6 @@
 import csv
 import os.path
+from src.phone import Phone
 
 
 #from src.csv_errors import InstantiateCSVError
@@ -7,6 +8,7 @@ class Item:
     """
     Класс для представления товара в магазине.
     """
+    self = None
     pay_rate = 1.0
     all = []
 
@@ -75,3 +77,23 @@ class Item:
         """
         self.price = self.price * Item.pay_rate
         return self.price
+
+
+    def add_attribute(self) -> None:
+        self.quantity = self.quantity + Phone.self.quantity
+        return self.quantity
+
+    def __add__(self, other):
+        """
+    	Метод срабатывает, когда используется оператор сложения.
+    	В параметре other хранится то, что справа от знака +
+        """
+        return self.quantity + other.quantity
+
+
+    def __add__(self, other):
+        """
+    	Метод срабатывает, когда используется оператор сложения.
+    	В параметре other хранится то, что справа от знака +
+        """
+        return self.number_of_sim + other.number_of_sim
