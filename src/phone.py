@@ -17,8 +17,6 @@ class Phone:
         self.quantity = quantity
         self.number_of_sim = number_of_sim
 
-    #def __repr__(self):
-    #    return f"{self.__class__.__name__},('{self.name}', {self.price}, {self.quantity}, {self.number_of_sim})"
 
 
     def __repr__(self):
@@ -33,12 +31,7 @@ class Phone:
     	Метод срабатывает, когда используется оператор сложения.
     	В параметре other хранится то, что справа от знака +
         """
-        return self.quantity + other.quantity
-
-
-    def __add__(self, other):
-        """
-    	Метод срабатывает, когда используется оператор сложения.
-    	В параметре other хранится то, что справа от знака +
-        """
-        return self.number_of_sim + other.number_of_sim
+        if isinstance(other,Phone):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError("Операция сложения не доступна для экземпляров класса.")

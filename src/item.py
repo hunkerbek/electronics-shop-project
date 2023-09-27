@@ -88,12 +88,7 @@ class Item:
     	Метод срабатывает, когда используется оператор сложения.
     	В параметре other хранится то, что справа от знака +
         """
-        return self.quantity + other.quantity
-
-
-    def __add__(self, other):
-        """
-    	Метод срабатывает, когда используется оператор сложения.
-    	В параметре other хранится то, что справа от знака +
-        """
-        return self.number_of_sim + other.number_of_sim
+        if isinstance(other,Phone):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError("Операция сложения не доступна для экземпляров класса.")
