@@ -1,6 +1,5 @@
 import csv
 import os.path
-from src.phone import Phone
 
 
 #from src.csv_errors import InstantiateCSVError
@@ -88,7 +87,7 @@ class Item:
     	Метод срабатывает, когда используется оператор сложения.
     	В параметре other хранится то, что справа от знака +
         """
-        if isinstance(other,Phone):
+        if issubclass(other.__class__, self.__class__):
             return self.quantity + other.quantity
         else:
             raise TypeError("Операция сложения не доступна для экземпляров класса.")
