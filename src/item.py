@@ -10,7 +10,7 @@ class Item:
     self = None
     pay_rate = 1.0
     all = []
-
+    name_len = 10
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
         Создание экземпляра класса item.
@@ -41,10 +41,10 @@ class Item:
     @name.setter
     def name(self, name):
         """Сеттер для name, с проверкой длины наименования товара"""
-        if len(name) <= 10:
+        if len(name) <= self.name_len:
             self.__name = name
         else:
-            self.__name = name[:10]
+            self.__name = name[:self.name_len]
 
     @classmethod
     def instantiate_from_csv(cls, file_name):
@@ -91,3 +91,6 @@ class Item:
             return self.quantity + other.quantity
         else:
             raise TypeError("Операция сложения не доступна для экземпляров класса.")
+
+
+
